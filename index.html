@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Pure.css for layout -->
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/grids-responsive-min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Vega-Lite -->
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <title>The State of the AFL</title>
+</head>
+
+<body>
+
+    <!-- ==================== HEADER / BANNER ==================== -->
+    <div class="page">
+
+        <div class="pure-g header-section">
+            <div class="pure-u-1">
+                <h1 class="main-title">The State of the AFL</h1>
+                <p class="subtitle">A data-driven overview of the Australian Football League — from its origins in 1897 to the present day.</p>
+            </div>
+        </div>
+
+        <!-- ==================== SECTION 1: THE MAP ==================== -->
+        <div class="pure-g section">
+            <div class="pure-u-1">
+                <h2 class="section-title">Where the Game Lives</h2>
+                <p class="section-description">
+                    The AFL's 18 teams are spread across five Australian states, but the heartland remains Victoria, home to 10 of the league's clubs. This map shows major AFL venues and their average attendance figures.
+                </p>
+            </div>
+            <div class="pure-u-1">
+                <div id="venue_map" class="vis-container"></div>
+            </div>
+        </div>
+
+        <!-- ==================== SECTION 2: HISTORY ==================== -->
+        <div class="pure-g section">
+            <div class="pure-u-1">
+                <h2 class="section-title">A History of Dominance</h2>
+                <p class="section-description">
+                    Since 1897, 15 teams have tasted premiership glory. Carlton, Collingwood and Essendon lead the way with 16 flags each, though the modern era has seen a more even spread of success.
+                </p>
+            </div>
+            <div class="pure-u-1 pure-u-md-1-2">
+                <div id="premierships_bar" class="vis-container"></div>
+            </div>
+            <div class="pure-u-1 pure-u-md-1-2">
+                <div id="attendance_line" class="vis-container"></div>
+            </div>
+        </div>
+
+        <!-- ==================== SECTION 3: HOW THE GAME HAS CHANGED ==================== -->
+        <div class="pure-g section">
+            <div class="pure-u-1">
+                <h2 class="section-title">How the Game Has Changed</h2>
+                <p class="section-description">
+                    Scoring patterns have shifted dramatically over the decades. The high-scoring era of the 1970s and 80s has given way to a more defensive, congested style of play.
+                </p>
+            </div>
+            <div class="pure-u-1 pure-u-md-1-2">
+                <div id="scoring_trends" class="vis-container"></div>
+            </div>
+            <div class="pure-u-1 pure-u-md-1-2">
+                <div id="goalkickers_dot" class="vis-container"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Vega-Lite visualisation scripts — loaded last -->
+    <script src="Js/vega_lite_vis_DV2.js"></script>
+
+</body>
+
+</html>
