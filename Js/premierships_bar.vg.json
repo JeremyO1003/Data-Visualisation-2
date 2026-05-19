@@ -1,0 +1,56 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "VFL/AFL Premierships by Team",
+    "fontSize": 16
+  },
+  "width": 450,
+  "height": 400,
+  "data": {
+    "url": "Js/data/premierships.csv"
+  },
+  "transform": [
+    {
+      "filter": "datum.premierships > 0"
+    }
+  ],
+  "mark": {
+    "type": "bar",
+    "color": "#1a3a5c"
+  },
+  "encoding": {
+    "y": {
+      "field": "team",
+      "type": "nominal",
+      "title": null,
+      "sort": "-x"
+    },
+    "x": {
+      "field": "premierships",
+      "type": "quantitative",
+      "title": "Number of Premierships"
+    },
+    "tooltip": [
+      {
+        "field": "team",
+        "type": "nominal",
+        "title": "Team"
+      },
+      {
+        "field": "premierships",
+        "type": "quantitative",
+        "title": "Premierships"
+      },
+      {
+        "field": "first_premiership",
+        "type": "nominal",
+        "title": "First Flag"
+      },
+      {
+        "field": "last_premiership",
+        "type": "nominal",
+        "title": "Most Recent"
+      }
+    ]
+  }
+}
