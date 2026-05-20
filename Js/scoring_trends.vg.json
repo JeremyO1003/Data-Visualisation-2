@@ -1,11 +1,87 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 450,
-    "height": 400,
-    "title": {"text": "PLACEHOLDER — coming soon"},
-    "data": {"values": [{}]},
-    "mark": {"type": "text", "fontSize": 20, "color": "#aaa"},
-    "encoding": {
-        "text": {"value": "Chart placeholder"}
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "AFL Scoring Trends by Decade",
+    "fontSize": 16
+  },
+  "width": 450,
+  "height": 400,
+  "data": {
+    "url": "Js/data/scoring_trends.csv"
+  },
+  "transform": [
+    {
+      "fold": [
+        "avg_goals_per_game",
+        "avg_behinds_per_game"
+      ],
+      "as": [
+        "score_type",
+        "value"
+      ]
+    },
+    {
+      "calculate": "datum.score_type == 'avg_goals_per_game' ? 'Goals' : 'Behinds'",
+      "as": "Score Type"
     }
+  ],
+  "mark": {
+    "type": "bar"
+  },
+  "encoding": {
+    "x": {
+      "field": "decade",
+      "type": "nominal",
+      "title": "Decade",
+      "axis": {
+        "labelAngle": -45
+      }
+    },
+    "y": {
+      "field": "value",
+      "type": "quantitative",
+      "title": "Average per Game"
+    },
+    "color": {
+      "field": "Score Type",
+      "type": "nominal",
+      "scale": {
+        "domain": [
+          "Goals",
+          "Behinds"
+        ],
+        "range": [
+          "#1a3a5c",
+          "#c8102e"
+        ]
+      },
+      "title": "Score Type"
+    },
+    "xOffset": {
+      "field": "Score Type"
+    },
+    "tooltip": [
+      {
+        "field": "decade",
+        "type": "nominal",
+        "title": "Decade"
+      },
+      {
+        "field": "Score Type",
+        "type": "nominal"
+      },
+      {
+        "field": "value",
+        "type": "quantitative",
+        "title": "Avg per Game",
+        "format": ".1f"
+      },
+      {
+        "field": "avg_total_score",
+        "type": "quantitative",
+        "title": "Avg Total Score",
+        "format": ".1f"
+      }
+    ]
+  }
 }
