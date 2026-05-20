@@ -1,0 +1,32 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {"text": "Average AFL Attendance (1950–2025)", "fontSize": 16},
+    "width": 450,
+    "height": 400,
+    "data": {
+        "url": "data/attendance_yearly.csv"
+    },
+    "mark": {
+        "type": "line",
+        "point": true,
+        "color": "#c8102e"
+    },
+    "encoding": {
+        "x": {
+            "field": "year",
+            "type": "quantitative",
+            "title": "Year",
+            "axis": {"format": "d"}
+        },
+        "y": {
+            "field": "avg_attendance",
+            "type": "quantitative",
+            "title": "Average Attendance",
+            "scale": {"zero": false}
+        },
+        "tooltip": [
+            {"field": "year", "type": "quantitative", "title": "Year", "format": "d"},
+            {"field": "avg_attendance", "type": "quantitative", "title": "Avg Attendance", "format": ","}
+        ]
+    }
+}
