@@ -1,6 +1,6 @@
 var vg_2 = "Js/premierships_bar.vg.json";
 var vg_3 = "Js/attendance_line.vg.json";
-var vg_4 = "Js/scoring_trends.vg.json";
+var vg_4 = "Js/scoring_trends.vg (1).json";
 
 var embedOpt = {"actions": false};
 
