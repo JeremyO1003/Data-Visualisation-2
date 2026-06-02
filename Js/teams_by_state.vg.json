@@ -1,0 +1,38 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {"text": "AFL Teams by State", "fontSize": 16},
+    "width": 450,
+    "height": 300,
+    "data": {
+        "url": "Js/data/teams_by_state.csv"
+    },
+    "mark": {"type": "bar", "cornerRadiusTopRight": 4, "cornerRadiusTopLeft": 4},
+    "encoding": {
+        "x": {
+            "field": "state_name",
+            "type": "nominal",
+            "title": null,
+            "sort": "-y"
+        },
+        "y": {
+            "field": "num_teams",
+            "type": "quantitative",
+            "title": "Number of Teams"
+        },
+        "color": {
+            "field": "state_name",
+            "type": "nominal",
+            "title": "State",
+            "scale": {
+                "domain": ["Victoria", "New South Wales", "Queensland", "South Australia", "Western Australia"],
+                "range": ["#1a3a5c", "#2e86de", "#c8102e", "#e17055", "#6c5ce7"]
+            },
+            "legend": null
+        },
+        "tooltip": [
+            {"field": "state_name", "type": "nominal", "title": "State"},
+            {"field": "num_teams", "type": "quantitative", "title": "Teams"},
+            {"field": "teams", "type": "nominal", "title": "Team Names"}
+        ]
+    }
+}

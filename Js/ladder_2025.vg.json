@@ -1,0 +1,37 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {"text": "2025 AFL Ladder (Final Standings)", "fontSize": 16},
+    "width": 450,
+    "height": 450,
+    "data": {
+        "url": "Js/data/ladder_2025.csv"
+    },
+    "mark": {"type": "bar"},
+    "encoding": {
+        "y": {
+            "field": "team",
+            "type": "nominal",
+            "title": null,
+            "sort": "-x"
+        },
+        "x": {
+            "field": "wins",
+            "type": "quantitative",
+            "title": "Wins"
+        },
+        "color": {
+            "condition": {
+                "test": "datum.position <= 8",
+                "value": "#1a3a5c"
+            },
+            "value": "#b0b0b0"
+        },
+        "tooltip": [
+            {"field": "team", "type": "nominal", "title": "Team"},
+            {"field": "position", "type": "quantitative", "title": "Position"},
+            {"field": "wins", "type": "quantitative", "title": "W"},
+            {"field": "losses", "type": "quantitative", "title": "L"},
+            {"field": "percentage", "type": "quantitative", "title": "%", "format": ".1f"}
+        ]
+    }
+}

@@ -1,0 +1,30 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {"text": "Average Attendance by Venue (2024)", "fontSize": 16},
+    "width": 450,
+    "height": 400,
+    "data": {
+        "url": "Js/data/venue_attendance.csv"
+    },
+    "mark": {"type": "bar", "color": "#1a3a5c"},
+    "encoding": {
+        "y": {
+            "field": "venue",
+            "type": "nominal",
+            "title": null,
+            "sort": "-x"
+        },
+        "x": {
+            "field": "avg_attendance",
+            "type": "quantitative",
+            "title": "Average Attendance"
+        },
+        "tooltip": [
+            {"field": "venue", "type": "nominal", "title": "Venue"},
+            {"field": "city", "type": "nominal", "title": "City"},
+            {"field": "avg_attendance", "type": "quantitative", "title": "Avg Attendance", "format": ","},
+            {"field": "capacity", "type": "quantitative", "title": "Capacity", "format": ","},
+            {"field": "total_games", "type": "quantitative", "title": "Games"}
+        ]
+    }
+}

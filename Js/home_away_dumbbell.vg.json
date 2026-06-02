@@ -1,0 +1,73 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {"text": "Home vs Away Win Rates (2015–2025)", "fontSize": 16},
+    "width": 600,
+    "height": 450,
+    "data": {
+        "url": "Js/data/home_away_winrates.csv"
+    },
+    "layer": [
+        {
+            "mark": {"type": "rule", "color": "#ccc", "strokeWidth": 2},
+            "encoding": {
+                "y": {
+                    "field": "team",
+                    "type": "nominal",
+                    "title": null,
+                    "sort": {"field": "home_advantage", "order": "descending"}
+                },
+                "x": {
+                    "field": "away_win_pct",
+                    "type": "quantitative"
+                },
+                "x2": {
+                    "field": "home_win_pct"
+                }
+            }
+        },
+        {
+            "mark": {"type": "circle", "size": 100},
+            "encoding": {
+                "y": {
+                    "field": "team",
+                    "type": "nominal",
+                    "sort": {"field": "home_advantage", "order": "descending"}
+                },
+                "x": {
+                    "field": "home_win_pct",
+                    "type": "quantitative",
+                    "title": "Win Rate (%)",
+                    "scale": {"domain": [20, 85]}
+                },
+                "color": {"value": "#1a3a5c"},
+                "tooltip": [
+                    {"field": "team", "type": "nominal", "title": "Team"},
+                    {"field": "home_win_pct", "type": "quantitative", "title": "Home Win %", "format": ".1f"},
+                    {"field": "away_win_pct", "type": "quantitative", "title": "Away Win %", "format": ".1f"},
+                    {"field": "home_advantage", "type": "quantitative", "title": "Advantage", "format": ".1f"}
+                ]
+            }
+        },
+        {
+            "mark": {"type": "circle", "size": 100},
+            "encoding": {
+                "y": {
+                    "field": "team",
+                    "type": "nominal",
+                    "sort": {"field": "home_advantage", "order": "descending"}
+                },
+                "x": {
+                    "field": "away_win_pct",
+                    "type": "quantitative"
+                },
+                "color": {"value": "#c8102e"},
+                "tooltip": [
+                    {"field": "team", "type": "nominal", "title": "Team"},
+                    {"field": "home_win_pct", "type": "quantitative", "title": "Home Win %", "format": ".1f"},
+                    {"field": "away_win_pct", "type": "quantitative", "title": "Away Win %", "format": ".1f"},
+                    {"field": "home_advantage", "type": "quantitative", "title": "Advantage", "format": ".1f"}
+                ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,48 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {"text": "All-Time Career Goalkicking Leaders", "fontSize": 16},
+    "width": 450,
+    "height": 400,
+    "data": {
+        "url": "Js/data/career_goalkickers.csv"
+    },
+    "layer": [
+        {
+            "mark": {"type": "rule", "color": "#ddd", "strokeWidth": 1},
+            "encoding": {
+                "y": {
+                    "field": "player",
+                    "type": "nominal",
+                    "sort": {"field": "goals", "order": "descending"}
+                },
+                "x": {"datum": 0},
+                "x2": {"field": "goals", "type": "quantitative"}
+            }
+        },
+        {
+            "mark": {"type": "circle", "size": 120, "color": "#c8102e"},
+            "encoding": {
+                "y": {
+                    "field": "player",
+                    "type": "nominal",
+                    "title": null,
+                    "sort": {"field": "goals", "order": "descending"}
+                },
+                "x": {
+                    "field": "goals",
+                    "type": "quantitative",
+                    "title": "Career Goals"
+                },
+                "tooltip": [
+                    {"field": "player", "type": "nominal", "title": "Player"},
+                    {"field": "goals", "type": "quantitative", "title": "Career Goals"},
+                    {"field": "games", "type": "quantitative", "title": "Games"},
+                    {"field": "avg_goals_per_game", "type": "quantitative", "title": "Avg Goals/Game", "format": ".2f"},
+                    {"field": "team", "type": "nominal", "title": "Team(s)"},
+                    {"field": "career_start", "type": "nominal", "title": "Career Start"},
+                    {"field": "career_end", "type": "nominal", "title": "Career End"}
+                ]
+            }
+        }
+    ]
+}

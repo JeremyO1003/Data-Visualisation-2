@@ -1,0 +1,70 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {"text": "AFL Venues Across Australia", "fontSize": 16},
+    "width": 700,
+    "height": 500,
+    "projection": {"type": "mercator", "scale": 800, "center": [134, -28]},
+    "layer": [
+        {
+            "data": {
+                "url": "https://raw.githubusercontent.com/tonywr71/GeoJson-Data/master/australian-states.min.geojson",
+                "format": {"type": "json", "property": "features"}
+            },
+            "mark": {"type": "geoshape", "fill": "#e8e8e8", "stroke": "white", "strokeWidth": 1}
+        },
+        {
+            "data": {
+                "url": "Js/data/venue_attendance.csv"
+            },
+            "mark": {"type": "circle", "opacity": 0.7, "stroke": "#1a3a5c", "strokeWidth": 1},
+            "encoding": {
+                "longitude": {"field": "longitude", "type": "quantitative"},
+                "latitude": {"field": "latitude", "type": "quantitative"},
+                "size": {
+                    "field": "avg_attendance",
+                    "type": "quantitative",
+                    "title": "Avg Attendance",
+                    "scale": {"range": [50, 1500]}
+                },
+                "color": {
+                    "field": "avg_attendance",
+                    "type": "quantitative",
+                    "title": "Avg Attendance",
+                    "scale": {"scheme": "blues"}
+                },
+                "tooltip": [
+                    {"field": "venue", "type": "nominal", "title": "Venue"},
+                    {"field": "city", "type": "nominal", "title": "City"},
+                    {"field": "state", "type": "nominal", "title": "State"},
+                    {"field": "avg_attendance", "type": "quantitative", "title": "Avg Attendance", "format": ","},
+                    {"field": "capacity", "type": "quantitative", "title": "Capacity", "format": ","},
+                    {"field": "total_games", "type": "quantitative", "title": "Games Hosted"}
+                ]
+            }
+        },
+        {
+            "data": {
+                "url": "Js/data/venue_attendance.csv"
+            },
+            "mark": {
+                "type": "text",
+                "align": "left",
+                "dx": 10,
+                "fontSize": 10,
+                "fontStyle": "italic"
+            },
+            "encoding": {
+                "longitude": {"field": "longitude", "type": "quantitative"},
+                "latitude": {"field": "latitude", "type": "quantitative"},
+                "text": {"field": "venue", "type": "nominal"},
+                "opacity": {
+                    "condition": {
+                        "test": "datum.total_games >= 10",
+                        "value": 1
+                    },
+                    "value": 0
+                }
+            }
+        }
+    ]
+}

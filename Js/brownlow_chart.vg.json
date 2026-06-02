@@ -1,0 +1,36 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {"text": "Brownlow Medal Winners (2005–2025)", "fontSize": 16},
+    "width": 450,
+    "height": 400,
+    "data": {
+        "url": "Js/data/brownlow_winners.csv"
+    },
+    "mark": {"type": "circle", "size": 150, "opacity": 0.8},
+    "encoding": {
+        "x": {
+            "field": "year",
+            "type": "ordinal",
+            "title": "Year",
+            "axis": {"labelAngle": -45}
+        },
+        "y": {
+            "field": "votes",
+            "type": "quantitative",
+            "title": "Votes",
+            "scale": {"zero": false}
+        },
+        "color": {
+            "field": "team",
+            "type": "nominal",
+            "title": "Team",
+            "scale": {"scheme": "category20"}
+        },
+        "tooltip": [
+            {"field": "year", "type": "ordinal", "title": "Year"},
+            {"field": "player", "type": "nominal", "title": "Winner"},
+            {"field": "team", "type": "nominal", "title": "Team"},
+            {"field": "votes", "type": "quantitative", "title": "Votes"}
+        ]
+    }
+}
