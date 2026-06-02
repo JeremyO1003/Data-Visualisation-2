@@ -1,0 +1,6 @@
+state,state_name,num_teams,latitude,longitude,teams
+VIC,Victoria,10,-37.8136,144.9631,"Carlton, Collingwood, Essendon, Geelong, Hawthorn, Melbourne, North Melbourne, Richmond, St Kilda, Western Bulldogs"
+NSW,New South Wales,2,-33.8688,151.2093,"Sydney, GWS Giants"
+QLD,Queensland,2,-27.4698,153.0251,"Brisbane Lions, Gold Coast"
+SA,South Australia,2,-34.9285,138.6007,"Adelaide, Port Adelaide"
+WA,Western Australia,2,-31.9505,115.8605,"Fremantle, West Coast"
