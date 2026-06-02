@@ -4,20 +4,24 @@
     "text": "AFL Venues Across Australia",
     "fontSize": 16
   },
-  "width": 700,
-  "height": 550,
+  "width": 650,
+  "height": 500,
   "projection": {
     "type": "mercator",
-    "scale": 700,
+    "scale": 650,
     "center": [
       134,
-      -30
+      -29.5
+    ],
+    "translate": [
+      325,
+      250
     ]
   },
   "layer": [
     {
       "data": {
-        "url": "https://raw.githubusercontent.com/tonywr71/GeoJson-Data/master/australian-states.min.geojson",
+        "url": "https://raw.githubusercontent.com/rowanhogan/australian-states/master/states.geojson",
         "format": {
           "type": "json",
           "property": "features"
@@ -25,9 +29,9 @@
       },
       "mark": {
         "type": "geoshape",
-        "fill": "#e8e8e8",
-        "stroke": "white",
-        "strokeWidth": 1
+        "fill": "#eaeaea",
+        "stroke": "#b0b0b0",
+        "strokeWidth": 0.8
       }
     },
     {
@@ -36,7 +40,7 @@
       },
       "mark": {
         "type": "circle",
-        "opacity": 0.75,
+        "opacity": 0.8,
         "stroke": "#333",
         "strokeWidth": 0.5
       },
@@ -55,12 +59,17 @@
           "title": "Avg Attendance",
           "scale": {
             "range": [
-              40,
-              1200
+              30,
+              1000
             ]
           },
           "legend": {
-            "format": ","
+            "format": ",",
+            "title": "Avg Attendance",
+            "orient": "none",
+            "legendX": 500,
+            "legendY": 350,
+            "direction": "vertical"
           }
         },
         "color": {
@@ -88,6 +97,12 @@
               "#fdcb6e",
               "#636e72"
             ]
+          },
+          "legend": {
+            "orient": "none",
+            "legendX": 500,
+            "legendY": 10,
+            "direction": "vertical"
           }
         },
         "tooltip": [
@@ -138,10 +153,10 @@
       "mark": {
         "type": "text",
         "align": "left",
-        "dx": 12,
+        "dx": 10,
         "dy": -2,
-        "fontSize": 11,
-        "fontWeight": 600,
+        "fontSize": 10,
+        "fontWeight": "bold",
         "color": "#333"
       },
       "encoding": {
@@ -159,12 +174,5 @@
         }
       }
     }
-  ],
-  "config": {
-    "legend": {
-      "titleFontSize": 12,
-      "labelFontSize": 11,
-      "symbolStrokeWidth": 0
-    }
-  }
+  ]
 }
