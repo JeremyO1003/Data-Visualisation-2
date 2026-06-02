@@ -92,4 +92,31 @@ html, body {
 .pure-u-md-1-3 {
     padding: 5px 10px;
 }
- 
+
+/* ===== INFO PANEL (beside map) ===== */
+.info-panel {
+    padding: 15px 20px;
+    height: 100%;
+}
+
+.info-heading {
+    font-family: 'DM Serif Display', serif;
+    font-size: 17px;
+    color: #1a3a5c;
+    margin-bottom: 6px;
+    margin-top: 20px;
+    border-bottom: 2px solid #c8102e;
+    padding-bottom: 4px;
+    display: inline-block;
+}
+
+.info-panel .info-heading:first-child {
+    margin-top: 0;
+}
+
+.info-text {
+    font-size: 14px;
+    color: #4a4a4a;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
