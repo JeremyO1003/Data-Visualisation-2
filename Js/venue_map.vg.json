@@ -27,10 +27,13 @@
                     "scale": {"range": [50, 1500]}
                 },
                 "color": {
-                    "field": "avg_attendance",
-                    "type": "quantitative",
-                    "title": "Avg Attendance",
-                    "scale": {"scheme": "blues"}
+                    "field": "state",
+                    "type": "nominal",
+                    "title": "State",
+                    "scale": {
+                        "domain": ["VIC", "NSW", "QLD", "SA", "WA", "TAS", "ACT", "NT"],
+                        "range": ["#1a3a5c", "#2e86de", "#c8102e", "#e17055", "#6c5ce7", "#00b894", "#fdcb6e", "#636e72"]
+                    }
                 },
                 "tooltip": [
                     {"field": "venue", "type": "nominal", "title": "Venue"},
