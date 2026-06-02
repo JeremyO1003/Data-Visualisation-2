@@ -1,73 +1,170 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": {"text": "AFL Venues Across Australia", "fontSize": 16},
-    "width": 700,
-    "height": 500,
-    "projection": {"type": "mercator", "scale": 800, "center": [134, -28]},
-    "layer": [
-        {
-            "data": {
-                "url": "https://raw.githubusercontent.com/tonywr71/GeoJson-Data/master/australian-states.min.geojson",
-                "format": {"type": "json", "property": "features"}
-            },
-            "mark": {"type": "geoshape", "fill": "#e8e8e8", "stroke": "white", "strokeWidth": 1}
-        },
-        {
-            "data": {
-                "url": "Js/data/venue_attendance.csv"
-            },
-            "mark": {"type": "circle", "opacity": 0.7, "stroke": "#1a3a5c", "strokeWidth": 1},
-            "encoding": {
-                "longitude": {"field": "longitude", "type": "quantitative"},
-                "latitude": {"field": "latitude", "type": "quantitative"},
-                "size": {
-                    "field": "avg_attendance",
-                    "type": "quantitative",
-                    "title": "Avg Attendance",
-                    "scale": {"range": [50, 1500]}
-                },
-                "color": {
-                    "field": "state",
-                    "type": "nominal",
-                    "title": "State",
-                    "scale": {
-                        "domain": ["VIC", "NSW", "QLD", "SA", "WA", "TAS", "ACT", "NT"],
-                        "range": ["#1a3a5c", "#2e86de", "#c8102e", "#e17055", "#6c5ce7", "#00b894", "#fdcb6e", "#636e72"]
-                    }
-                },
-                "tooltip": [
-                    {"field": "venue", "type": "nominal", "title": "Venue"},
-                    {"field": "city", "type": "nominal", "title": "City"},
-                    {"field": "state", "type": "nominal", "title": "State"},
-                    {"field": "avg_attendance", "type": "quantitative", "title": "Avg Attendance", "format": ","},
-                    {"field": "capacity", "type": "quantitative", "title": "Capacity", "format": ","},
-                    {"field": "total_games", "type": "quantitative", "title": "Games Hosted"}
-                ]
-            }
-        },
-        {
-            "data": {
-                "url": "Js/data/venue_attendance.csv"
-            },
-            "mark": {
-                "type": "text",
-                "align": "left",
-                "dx": 10,
-                "fontSize": 10,
-                "fontStyle": "italic"
-            },
-            "encoding": {
-                "longitude": {"field": "longitude", "type": "quantitative"},
-                "latitude": {"field": "latitude", "type": "quantitative"},
-                "text": {"field": "venue", "type": "nominal"},
-                "opacity": {
-                    "condition": {
-                        "test": "datum.total_games >= 10",
-                        "value": 1
-                    },
-                    "value": 0
-                }
-            }
-        }
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "AFL Venues Across Australia",
+    "fontSize": 16
+  },
+  "width": 700,
+  "height": 550,
+  "projection": {
+    "type": "mercator",
+    "scale": 700,
+    "center": [
+      134,
+      -30
     ]
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/tonywr71/GeoJson-Data/master/australian-states.min.geojson",
+        "format": {
+          "type": "json",
+          "property": "features"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#e8e8e8",
+        "stroke": "white",
+        "strokeWidth": 1
+      }
+    },
+    {
+      "data": {
+        "url": "Js/data/venue_attendance.csv"
+      },
+      "mark": {
+        "type": "circle",
+        "opacity": 0.75,
+        "stroke": "#333",
+        "strokeWidth": 0.5
+      },
+      "encoding": {
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative"
+        },
+        "size": {
+          "field": "avg_attendance",
+          "type": "quantitative",
+          "title": "Avg Attendance",
+          "scale": {
+            "range": [
+              40,
+              1200
+            ]
+          },
+          "legend": {
+            "format": ","
+          }
+        },
+        "color": {
+          "field": "state",
+          "type": "nominal",
+          "title": "State",
+          "scale": {
+            "domain": [
+              "VIC",
+              "NSW",
+              "QLD",
+              "SA",
+              "WA",
+              "TAS",
+              "ACT",
+              "NT"
+            ],
+            "range": [
+              "#1a3a5c",
+              "#2e86de",
+              "#c8102e",
+              "#e17055",
+              "#6c5ce7",
+              "#00b894",
+              "#fdcb6e",
+              "#636e72"
+            ]
+          }
+        },
+        "tooltip": [
+          {
+            "field": "venue",
+            "type": "nominal",
+            "title": "Venue"
+          },
+          {
+            "field": "city",
+            "type": "nominal",
+            "title": "City"
+          },
+          {
+            "field": "state",
+            "type": "nominal",
+            "title": "State"
+          },
+          {
+            "field": "avg_attendance",
+            "type": "quantitative",
+            "title": "Avg Attendance",
+            "format": ","
+          },
+          {
+            "field": "capacity",
+            "type": "quantitative",
+            "title": "Capacity",
+            "format": ","
+          },
+          {
+            "field": "total_games",
+            "type": "quantitative",
+            "title": "Games Hosted"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "url": "Js/data/venue_attendance.csv"
+      },
+      "transform": [
+        {
+          "filter": "datum.venue == 'MCG' || datum.venue == 'Optus Stadium' || datum.venue == 'Adelaide Oval' || datum.venue == 'SCG' || datum.venue == 'The Gabba' || datum.venue == 'TIO Traeger Park'"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 12,
+        "dy": -2,
+        "fontSize": 11,
+        "fontWeight": 600,
+        "color": "#333"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "venue",
+          "type": "nominal"
+        }
+      }
+    }
+  ],
+  "config": {
+    "legend": {
+      "titleFontSize": 12,
+      "labelFontSize": 11,
+      "symbolStrokeWidth": 0
+    }
+  }
 }
