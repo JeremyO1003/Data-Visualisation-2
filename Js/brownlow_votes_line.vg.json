@@ -1,0 +1,62 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {"text": "Brownlow Medal Winning Vote Count (2005–2025)", "fontSize": 16},
+    "width": 450,
+    "height": 400,
+    "data": {
+        "url": "Js/data/brownlow_winners.csv"
+    },
+    "layer": [
+        {
+            "mark": {
+                "type": "area",
+                "color": "#1a3a5c",
+                "opacity": 0.15,
+                "line": false
+            },
+            "encoding": {
+                "x": {
+                    "field": "year",
+                    "type": "quantitative",
+                    "title": "Year",
+                    "axis": {"format": "d", "tickCount": 10}
+                },
+                "y": {
+                    "field": "votes",
+                    "type": "quantitative",
+                    "title": "Winning Vote Count",
+                    "scale": {"zero": false}
+                }
+            }
+        },
+        {
+            "mark": {
+                "type": "line",
+                "color": "#1a3a5c",
+                "strokeWidth": 2,
+                "point": false
+            },
+            "encoding": {
+                "x": {"field": "year", "type": "quantitative"},
+                "y": {"field": "votes", "type": "quantitative"}
+            }
+        },
+        {
+            "mark": {
+                "type": "circle",
+                "size": 80,
+                "color": "#c8102e"
+            },
+            "encoding": {
+                "x": {"field": "year", "type": "quantitative"},
+                "y": {"field": "votes", "type": "quantitative"},
+                "tooltip": [
+                    {"field": "year", "type": "quantitative", "title": "Year", "format": "d"},
+                    {"field": "player", "type": "nominal", "title": "Winner"},
+                    {"field": "team", "type": "nominal", "title": "Team"},
+                    {"field": "votes", "type": "quantitative", "title": "Votes"}
+                ]
+            }
+        }
+    ]
+}
