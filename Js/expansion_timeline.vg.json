@@ -1,0 +1,49 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {"text": "AFL Expansion Timeline: When Each Team Joined", "fontSize": 16},
+    "width": 450,
+    "height": 400,
+    "data": {
+        "url": "Js/data/team_expansion.csv"
+    },
+    "transform": [
+        {"filter": "datum.team != 'University' && datum.team != 'Fitzroy'"}
+    ],
+    "mark": {
+        "type": "circle",
+        "size": 150,
+        "opacity": 0.85,
+        "stroke": "#333",
+        "strokeWidth": 0.5
+    },
+    "encoding": {
+        "x": {
+            "field": "year_joined",
+            "type": "quantitative",
+            "title": "Year Joined",
+            "axis": {"format": "d", "tickCount": 8},
+            "scale": {"domain": [1895, 2015]}
+        },
+        "y": {
+            "field": "team",
+            "type": "nominal",
+            "title": null,
+            "sort": {"field": "year_joined", "order": "ascending"}
+        },
+        "color": {
+            "field": "state",
+            "type": "nominal",
+            "title": "State",
+            "scale": {
+                "domain": ["VIC", "NSW", "QLD", "SA", "WA"],
+                "range": ["#1a3a5c", "#2e86de", "#c8102e", "#e17055", "#6c5ce7"]
+            }
+        },
+        "tooltip": [
+            {"field": "team", "type": "nominal", "title": "Team"},
+            {"field": "year_joined", "type": "quantitative", "title": "Year Joined", "format": "d"},
+            {"field": "state", "type": "nominal", "title": "State"},
+            {"field": "city", "type": "nominal", "title": "City"}
+        ]
+    }
+}
