@@ -4,7 +4,7 @@ var vg_3 = "Js/attendance_line.vg.json";
 var vg_4 = "Js/scoring_trends.vg (1).json";
 var vg_5 = "Js/goalkickers_dot.vg.json";
 var vg_6 = "Js/home_away_dumbbell.vg.json";
-var vg_7 = "Js/ladder_2025.vg.json";
+var vg_7 = "Js/ladder_interactive.vg.json";
 var vg_8 = "Js/brownlow_chart.vg.json";
 var vg_9 = "Js/teams_by_state.vg.json";
 var vg_10 = "Js/expansion_timeline.vg.json";
@@ -29,7 +29,7 @@ vegaEmbed("#goalkickers_dot", vg_5, embedOpt).then(function(result) {
 vegaEmbed("#home_away_dumbbell", vg_6, embedOpt).then(function(result) {
 }).catch(console.error);
  
-vegaEmbed("#ladder_2025", vg_7, embedOpt).then(function(result) {
+vegaEmbed("#ladder_interactive", vg_7, embedOpt).then(function(result) {
 }).catch(console.error);
  
 vegaEmbed("#brownlow_chart", vg_8, embedOpt).then(function(result) {
