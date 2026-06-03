@@ -1,0 +1,67 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {"text": "Brownlow Medal: Cumulative Career Votes (Top 10)", "fontSize": 16},
+    "width": 450,
+    "height": 400,
+    "data": {
+        "url": "Js/data/brownlow_cumulative.csv"
+    },
+    "params": [
+        {
+            "name": "player_highlight",
+            "select": {"type": "point", "fields": ["player"]},
+            "bind": "legend"
+        }
+    ],
+    "mark": {
+        "type": "line",
+        "strokeWidth": 2.5,
+        "point": false
+    },
+    "encoding": {
+        "x": {
+            "field": "year",
+            "type": "quantitative",
+            "title": "Year",
+            "axis": {"format": "d", "tickCount": 10}
+        },
+        "y": {
+            "field": "cumulative_votes",
+            "type": "quantitative",
+            "title": "Cumulative Votes"
+        },
+        "color": {
+            "field": "player",
+            "type": "nominal",
+            "title": "Player",
+            "scale": {
+                "domain": [
+                    "Gary Ablett Jr",
+                    "Patrick Dangerfield",
+                    "Scott Pendlebury",
+                    "Lachie Neale",
+                    "Patrick Cripps",
+                    "Nat Fyfe",
+                    "Marcus Bontempelli",
+                    "Dane Swan",
+                    "Dustin Martin",
+                    "Tom Mitchell"
+                ],
+                "range": [
+                    "#1a3a5c", "#c8102e", "#2e86de", "#e17055", "#6c5ce7",
+                    "#00b894", "#fdcb6e", "#636e72", "#d63031", "#0984e3"
+                ]
+            }
+        },
+        "opacity": {
+            "condition": {"param": "player_highlight", "value": 1},
+            "value": 0.15
+        },
+        "tooltip": [
+            {"field": "player", "type": "nominal", "title": "Player"},
+            {"field": "year", "type": "quantitative", "title": "Year", "format": "d"},
+            {"field": "votes_year", "type": "quantitative", "title": "Votes This Year"},
+            {"field": "cumulative_votes", "type": "quantitative", "title": "Career Total"}
+        ]
+    }
+}
