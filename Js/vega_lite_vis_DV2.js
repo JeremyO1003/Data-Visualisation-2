@@ -7,7 +7,7 @@ var vg_6 = "Js/home_away_dumbbell.vg.json";
 var vg_7 = "Js/ladder_2025.vg.json";
 var vg_8 = "Js/brownlow_chart.vg.json";
 var vg_9 = "Js/teams_by_state.vg.json";
-var vg_10 = "Js/venue_attendance_bar.vg.json";
+var vg_10 = "Js/expansion_timeline.vg.json";
 
 var embedOpt = {"actions": false};
 
@@ -38,5 +38,5 @@ vegaEmbed("#brownlow_chart", vg_8, embedOpt).then(function(result) {
 vegaEmbed("#teams_by_state", vg_9, embedOpt).then(function(result) {
 }).catch(console.error);
  
-vegaEmbed("#venue_attendance_bar", vg_10, embedOpt).then(function(result) {
+vegaEmbed("#expansion_timeline", vg_10, embedOpt).then(function(result) {
 }).catch(console.error);
