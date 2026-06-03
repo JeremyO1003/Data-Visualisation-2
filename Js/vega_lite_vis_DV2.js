@@ -8,6 +8,7 @@ var vg_7 = "Js/ladder_interactive.vg.json";
 var vg_8 = "Js/brownlow_chart.vg.json";
 var vg_9 = "Js/teams_by_state.vg.json";
 var vg_10 = "Js/expansion_timeline.vg.json";
+var vg_11 = "Js/brownlow_votes_line.vg.json";
 
 var embedOpt = {"actions": false};
 
@@ -39,4 +40,7 @@ vegaEmbed("#teams_by_state", vg_9, embedOpt).then(function(result) {
 }).catch(console.error);
  
 vegaEmbed("#expansion_timeline", vg_10, embedOpt).then(function(result) {
+}).catch(console.error);
+
+vegaEmbed("#brownlow_votes", vg_11, embedOpt).then(function(result) {
 }).catch(console.error);
