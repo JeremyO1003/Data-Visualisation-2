@@ -16,29 +16,28 @@ html, body {
     padding: 20px;
 }
  
-/* ===== HEADER ===== */
 .header-section {
     text-align: center;
-    padding: 60px 20px 40px 20px;
+    padding: 30px 20px 20px 20px;
     border-bottom: 3px solid #1a3a5c;
     margin-bottom: 40px;
 }
- 
+
 .main-title {
     font-family: 'DM Serif Display', serif;
-    font-size: 52px;
+    font-size: 40px;
     color: #1a3a5c;
     letter-spacing: 1px;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
 }
- 
+
 .subtitle {
-    font-size: 18px;
+    font-size: 16px;
     color: #5a5a5a;
     font-weight: 300;
     max-width: 700px;
     margin: 0 auto;
-    line-height: 1.6;
+    line-height: 1.5;
 }
  
 /* ===== SECTIONS ===== */
